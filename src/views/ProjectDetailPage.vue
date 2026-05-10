@@ -127,21 +127,21 @@ watch(
   <main class="mx-auto w-full max-w-5xl flex-1 px-5 py-8">
     <RouterLink
       to="/projects"
-      class="mono text-text-3 hover:text-text mb-6 inline-flex items-center gap-1.5"
+      class="mono mb-6 inline-flex items-center gap-1.5 text-text-3 hover:text-text"
     >
       <span aria-hidden="true">←</span> Dashboard
     </RouterLink>
 
     <p
       v-if="loadingProject"
-      class="text-text-2 text-sm"
+      class="text-sm text-text-2"
     >
       Loading project…
     </p>
 
     <p
       v-else-if="loadError"
-      class="border-danger/30 bg-danger-soft text-danger flex items-center gap-2 rounded-md border px-4 py-3 text-sm"
+      class="flex items-center gap-2 rounded-md border border-danger/30 bg-danger-soft px-4 py-3 text-sm text-danger"
       role="alert"
       aria-live="polite"
     >
@@ -166,12 +166,12 @@ watch(
                 >{{ stats.pct }}% done</span
               >
             </div>
-            <h1 class="text-text text-2xl font-semibold tracking-tight">
+            <h1 class="text-2xl font-semibold tracking-tight text-text">
               {{ project.name }}
             </h1>
             <p
               v-if="project.description"
-              class="text-text-2 mt-1.5 text-sm"
+              class="mt-1.5 text-sm text-text-2"
             >
               {{ project.description }}
             </p>
@@ -224,27 +224,25 @@ watch(
           </div>
         </form>
 
-        <!-- Progress bar -->
         <div
           v-if="!editingProject && stats.total > 0"
           class="mt-5"
         >
-          <div class="text-text-3 mb-1.5 flex items-center justify-between text-xs">
+          <div class="mb-1.5 flex items-center justify-between text-xs text-text-3">
             <span>Progress</span>
             <span class="mono">{{ stats.done }}/{{ stats.total }}</span>
           </div>
-          <div class="bg-surface-2 h-1.5 overflow-hidden rounded-full">
+          <div class="h-1.5 overflow-hidden rounded-full bg-surface-2">
             <div
-              class="bg-accent h-full rounded-full transition-[width] duration-500"
+              class="h-full rounded-full bg-accent transition-[width] duration-500"
               :style="{ width: `${stats.pct}%` }"
             />
           </div>
         </div>
       </header>
 
-      <!-- Add task -->
       <section class="rise rise-2 card mb-6 p-5">
-        <h2 class="text-text mb-4 text-sm font-semibold">Add task</h2>
+        <h2 class="mb-4 text-sm font-semibold text-text">Add task</h2>
         <form
           class="grid gap-4 md:grid-cols-[1.5fr_2fr_auto_auto] md:items-end"
           @submit.prevent="addTask"
@@ -265,13 +263,13 @@ watch(
           <div class="flex flex-col gap-1.5">
             <label
               for="new-task-status"
-              class="text-text-2 text-xs font-medium"
+              class="text-xs font-medium text-text-2"
               >Status</label
             >
             <select
               id="new-task-status"
               v-model="newTask.status"
-              class="border-border bg-surface text-text hover:border-border-strong focus:border-accent focus:ring-accent/30 h-10 rounded-md border px-3 text-sm transition-colors focus:ring-2 focus:outline-none"
+              class="h-10 rounded-md border border-border bg-surface px-3 text-sm text-text transition-colors hover:border-border-strong focus:border-accent focus:ring-2 focus:ring-accent/30 focus:outline-none"
             >
               <option
                 v-for="s in TASK_STATUSES"
@@ -290,7 +288,7 @@ watch(
           </AppButton>
           <p
             v-if="newTaskError && Object.keys(newTaskFieldErrors).length === 0"
-            class="border-danger/30 bg-danger-soft text-danger flex items-center gap-2 rounded-md border px-3 py-2 text-xs md:col-span-4"
+            class="flex items-center gap-2 rounded-md border border-danger/30 bg-danger-soft px-3 py-2 text-xs text-danger md:col-span-4"
             role="alert"
             aria-live="polite"
           >
@@ -300,11 +298,10 @@ watch(
         </form>
       </section>
 
-      <!-- Tasks -->
       <section>
         <p
           v-if="tasksLoading && tasks.length === 0"
-          class="text-text-2 text-sm"
+          class="text-sm text-text-2"
         >
           Loading tasks…
         </p>
@@ -317,8 +314,8 @@ watch(
             aria-hidden="true"
             >✦</span
           >
-          <h3 class="text-text text-sm font-semibold">No tasks yet</h3>
-          <p class="text-text-2 text-sm">Add your first task above to get started.</p>
+          <h3 class="text-sm font-semibold text-text">No tasks yet</h3>
+          <p class="text-sm text-text-2">Add your first task above to get started.</p>
         </div>
         <div
           v-else
@@ -330,7 +327,7 @@ watch(
           >
             <div class="mb-2.5 flex items-center justify-between">
               <h2
-                class="text-text-2 flex items-center gap-2 text-xs font-semibold tracking-wide uppercase"
+                class="flex items-center gap-2 text-xs font-semibold tracking-wide text-text-2 uppercase"
               >
                 {{ TASK_STATUS_LABELS[status] }}
                 <span class="mono text-text-3">{{ grouped[status].length }}</span>
@@ -350,7 +347,7 @@ watch(
             </ul>
             <p
               v-else
-              class="border-border text-text-3 rounded-md border border-dashed px-4 py-3 text-xs"
+              class="rounded-md border border-dashed border-border px-4 py-3 text-xs text-text-3"
             >
               Nothing here.
             </p>

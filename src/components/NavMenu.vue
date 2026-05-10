@@ -23,14 +23,14 @@ const linkClass =
 
 <template>
   <header class="sticky top-0 z-40 backdrop-blur-xl">
-    <div class="border-border bg-bg/70 border-b">
+    <div class="border-b border-border bg-bg/70">
       <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3">
         <RouterLink
           to="/projects"
-          class="text-text flex items-center gap-2.5 text-sm font-semibold"
+          class="flex items-center gap-2.5 text-sm font-semibold text-text"
         >
           <span
-            class="bg-accent text-accent-ink grid h-7 w-7 place-items-center rounded-lg"
+            class="grid h-7 w-7 place-items-center rounded-lg bg-accent text-accent-ink"
             aria-hidden="true"
           >
             <svg
@@ -77,12 +77,12 @@ const linkClass =
             <div class="hidden items-center gap-2.5 sm:flex">
               <span
                 aria-hidden="true"
-                class="border-border bg-surface-2 text-text-2 grid h-7 w-7 place-items-center rounded-full border text-xs font-medium"
+                class="grid h-7 w-7 place-items-center rounded-full border border-border bg-surface-2 text-xs font-medium text-text-2"
               >
                 {{ (auth.email || '?').charAt(0).toUpperCase() }}
               </span>
               <span
-                class="text-text-2 text-sm"
+                class="text-sm text-text-2"
                 translate="no"
               >
                 {{ auth.email }}
@@ -104,7 +104,7 @@ const linkClass =
             >
             <RouterLink
               to="/register"
-              class="roudned-md bg-accent text-accent-ink px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-90"
+              class="rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-accent-ink transition-opacity hover:opacity-90"
               >Get started</RouterLink
             >
           </template>
