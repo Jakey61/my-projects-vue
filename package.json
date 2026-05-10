@@ -14,7 +14,7 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "@cloudflare/vite-plugin": "^1.35.0",
+    "@cloudflare/vite-plugin": "^1.36.3",
     "@vueuse/core": "^14.2.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.29",
